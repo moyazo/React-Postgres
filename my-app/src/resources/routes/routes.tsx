@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { Route, Routes } from "react-router";
 import { BrowserRouter } from "react-router-dom";
+import Login from "../views/auth/login";
 
 
 
@@ -11,7 +12,7 @@ const Router: FC = () => {
                 <Route path="/" key={'appHome'}/>
                 <Route path="/" key={'apiSync'}/>
                 <Route path="/admin"/>
-                <Route path="/login"/>
+                <Route path="/login" element={<Login/>}/>
                 <Route path="/detail"/>
                 <Route path="/403"/>
                 <Route path="/404"/>

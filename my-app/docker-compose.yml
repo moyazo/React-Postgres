@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+  db:
+    container_name: 'ReactPostgress'
+    image: postgres:13-alpine
+    environment:
+      POSTGRES_USER: 'postgres'
+      POSTGRES_DB: 'postgres'
+      POSTGRES_PASSWORD: 'postgres'
+    ports:
+      - 5432:5432
+    volumes:
+      - db-data:/var/lib/postgresql/data
+volumes:
+  db-data:
