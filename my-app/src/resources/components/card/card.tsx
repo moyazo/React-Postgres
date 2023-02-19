@@ -23,7 +23,7 @@ const Card: FC<Props> = ({ id, photo_id, camera_id, camera_name, img_url, varian
         navigate(`/update/${id}`);
     }
     const createRover = async () => {
-        navigate('/');
+        navigate('/create');
     }
 
     return (

@@ -16,7 +16,7 @@ const Router: FC = () => {
                 <Route path="/" key={'appHome'} element={<Rover />} />
                 <Route path="/detail/:roverId" element={<Detail />} />
                 <Route path="/update/:roverId" element={<Controller />}/>
-                <Route path="/create" />
+                <Route path="/create" element={<Controller />}/>
                 <Route path="/403" />
                 <Route path="/404" />
                 <Route path="/500" />
