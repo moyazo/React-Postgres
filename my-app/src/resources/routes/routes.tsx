@@ -2,22 +2,25 @@ import { FC } from "react";
 import { Route, Routes } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 import Login from "../views/auth/login";
+import Detail from "../views/details/Detail";
+import Controller from "../views/details/roverController/controller";
+import Rover from "../views/home/Rover";
 
 
 
 const Router: FC = () => {
-    return(
+    return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" key={'appHome'}/>
-                <Route path="/" key={'apiSync'}/>
-                <Route path="/admin"/>
-                <Route path="/login" element={<Login/>}/>
-                <Route path="/detail"/>
-                <Route path="/403"/>
-                <Route path="/404"/>
-                <Route path="/500"/>
-                <Route path="/502"/>
+                <Route path="/login" element={<Login />} />
+                <Route path="/" key={'appHome'} element={<Rover />} />
+                <Route path="/detail/:roverId" element={<Detail />} />
+                <Route path="/update/:roverId" element={<Controller />}/>
+                <Route path="/create" />
+                <Route path="/403" />
+                <Route path="/404" />
+                <Route path="/500" />
+                <Route path="/502" />
             </Routes>
         </BrowserRouter>
     )
