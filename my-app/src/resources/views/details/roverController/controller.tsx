@@ -1,22 +1,20 @@
 import { Field, Formik } from "formik";
-import { FC, memo, useState,useEffect } from "react";
+import { FC, memo, useState, useEffect } from "react";
 import { useNavigate, useParams } from 'react-router-dom';
 import Button from "../../../components/Button/Button";
 import { Container, Form, Input, InputContainer, Label } from './styles';
 import { validationRover, initialValues } from './constants';
 
-
-
 const Controller: FC = () => {
     // const navigator = useNavigate();
     const params = useParams();
     // eslint-disable-next-line no-restricted-globals
-    const [path , setPath] = useState(true);
+    const [path, setPath] = useState(true);
 
-    useEffect(()=>{
+    useEffect(() => {
         // eslint-disable-next-line no-restricted-globals
-        !location.pathname.includes('/update')? setPath(false) : setPath(true);
-    },[path])
+        !location.pathname.includes('/update') ? setPath(false) : setPath(true);
+    }, [path])
     const changeRover = async (values: any) => {
         console.log(values);
         await fetch(`http://localhost:8000/NasaApi/changeRover/${params.roverId}`, {

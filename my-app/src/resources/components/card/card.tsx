@@ -13,12 +13,11 @@ const Card: FC<Props> = ({ id, photo_id, camera_id, camera_name, img_url, varian
         navigate(`/detail/${id}`);
     }, [id, navigate])
     const deleteRover = async () => {
-        await fetch(`http://localhost:8000/NasaApi/remove/${id}`,{
+        await fetch(`http://localhost:8000/NasaApi/remove/${id}`, {
             'method': `DELETE`
         })
         navigate('/');
     }
-
     const updateRover = async () => {
         navigate(`/update/${id}`);
     }
