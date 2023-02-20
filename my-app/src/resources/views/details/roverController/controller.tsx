@@ -4,9 +4,9 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Button from "../../../components/Button/Button";
 import { Container, Form, Input, InputContainer, Label } from './styles';
 import { validationRover, initialValues } from './constants';
-
+const token = localStorage.getItem('token');
 const Controller: FC = () => {
-    // const navigator = useNavigate();
+    const navigator = useNavigate();
     const params = useParams();
     // eslint-disable-next-line no-restricted-globals
     const [path, setPath] = useState(true);
@@ -19,7 +19,7 @@ const Controller: FC = () => {
         console.log(values);
         await fetch(`http://localhost:8000/NasaApi/changeRover/${params.roverId}`, {
             'method': `PUT`,
-            'headers': { 'Content-Type': 'application/json' },
+            'headers': { 'Content-Type': 'application/json','authorization': `Bearer ${JSON.parse(token!)}` },
             'body': JSON.stringify(
                 {
                     "photo_id": values.photo_id,
@@ -27,13 +27,13 @@ const Controller: FC = () => {
                     "camera_name": values.camera_name,
                 }),
         })
-        // navigator('/');
+        navigator('/home');
     }
     const createRover = async (values: any) => {
         // console.log(values);
         await fetch(`http://localhost:8000/NasaApi/createRover`, {
             'method': `POST`,
-            'headers': { 'Content-Type': 'application/json' },
+            'headers': { 'Content-Type': 'application/json','authorization': `Bearer ${JSON.parse(token!)}` },
             'body': JSON.stringify(
                 {
                     "photo_id": values.photo_id,
@@ -41,7 +41,7 @@ const Controller: FC = () => {
                     "camera_name": values.camera_name,
                 }),
         })
-        // navigator('/');
+        navigator('/home');
     }
     return (
         <Container>

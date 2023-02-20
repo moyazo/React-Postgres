@@ -5,10 +5,13 @@ import Card from "../../components/card/card";
 // import Card from "../../components/card/card";
 // import { CustomCardContainer } from "./styles";
 import { Props } from "./type";
-
+const token = localStorage.getItem('token');
 
 const callData = async (param?: string) => {
-    const response = await fetch(`http://localhost:8000/NasaApi/rover/${param}`);
+    const response = await fetch(`http://localhost:8000/NasaApi/rover/${param}`, {
+        'method': 'GET',
+        'headers': { 'Content-Type': 'application/json', 'authorization': `Bearer ${JSON.parse(token!)}` },
+    });
     const data = await response.json();
     return data;
 }

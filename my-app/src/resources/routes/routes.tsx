@@ -20,10 +20,6 @@ const Router: FC = () => {
                 <Route path="/detail/:roverId" element={<Detail />} />
                 <Route path="/update/:roverId" element={<Controller />}/>
                 <Route path="/create" element={<Controller />}/>
-                <Route path="/403" />
-                <Route path="/404" />
-                <Route path="/500" />
-                <Route path="/502" />
             </Routes>
         </BrowserRouter>
     )

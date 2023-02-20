@@ -4,7 +4,7 @@ import { CustomCard } from './styles';
 import { Props } from './type';
 import { useNavigate } from 'react-router-dom';
 import { useCallback } from 'react';
-
+const token = localStorage.getItem('token');
 
 const Card: FC<Props> = ({ id, photo_id, camera_id, camera_name, img_url, variant }) => {
     const navigate = useNavigate();
@@ -14,9 +14,10 @@ const Card: FC<Props> = ({ id, photo_id, camera_id, camera_name, img_url, varian
     }, [id, navigate])
     const deleteRover = async () => {
         await fetch(`http://localhost:8000/NasaApi/remove/${id}`, {
-            'method': `DELETE`
+            'method': `DELETE`,
+            'headers': { 'Content-Type': 'application/json','authorization': `Bearer ${JSON.parse(token!)}` }
         })
-        navigate('/');
+        navigate('/home');
     }
     const updateRover = async () => {
         navigate(`/update/${id}`);

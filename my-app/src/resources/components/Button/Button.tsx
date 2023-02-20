@@ -16,7 +16,8 @@ const Button: FC<Props> = ({
                 variant === 'delete'? 'DELETE' : 
                 variant === 'update'? 'UPDATE' : 
                 variant === 'create'? 'CREATE' : 
-                variant === 'up' ? 'SIGN UP' : 'SIGN IN'
+                variant === 'up' ? 'SIGN UP' : 
+                variant === 'sync' ? 'SYNC API' : 'SIGN IN'
             }
         </CustomButton>
     )

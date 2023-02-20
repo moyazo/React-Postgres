@@ -1,7 +1,7 @@
 /* eslint-disable no-restricted-globals */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Field, Formik } from "formik";
-import { FC, memo, useCallback,useEffect,useState } from 'react';
+import { FC, memo, useCallback } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Button from "../../components/Button/Button";
 import { Container, Form, Input, InputContainer, Label } from './styles';
