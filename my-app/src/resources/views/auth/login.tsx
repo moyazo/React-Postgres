@@ -1,11 +1,12 @@
 /* eslint-disable no-restricted-globals */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Field, Formik } from "formik";
-import { FC, memo, useCallback,useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { FC, memo, useCallback,useEffect,useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Button from "../../components/Button/Button";
 import { Container, Form, Input, InputContainer, Label } from './styles';
 import { validationForm, initialValues } from './constants';
+
 
 const Login: FC = () => {
     const navigate = useNavigate();
@@ -49,7 +50,8 @@ const Login: FC = () => {
                             </InputContainer>
                         )}
                     </Field>
-                    <Button type='submit'>SIGN UP</Button>
+                    <Button type='submit' variant={ location.pathname === '/signUp' ? 'up' : 'in'}/>
+                    <Link to={location.pathname === '/signUp'? '/logIn' : '/signUp'}>{ location.pathname === '/signUp' ? 'ALREADY HAVE AN ACCOUNT' : 'NOT HAVE AN ACCOUNT'}</Link>
                 </Form>
             </Formik>
         </Container>

@@ -10,11 +10,13 @@ const Button: FC<Props> = ({
 }) => {
     return (
         <CustomButton onClick={onClick}>
-            {
+            {   
+                
                 variant === 'normal'?' SEE ROVER' :
                 variant === 'delete'? 'DELETE' : 
                 variant === 'update'? 'UPDATE' : 
-                variant === 'create'? 'CREATE' : 'UPDATE'
+                variant === 'create'? 'CREATE' : 
+                variant === 'up' ? 'SIGN UP' : 'SIGN IN'
             }
         </CustomButton>
     )
